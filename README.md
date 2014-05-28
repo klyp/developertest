@@ -1,8 +1,8 @@
-## The Twitter Test
+## Dveloper Test
 
 ### Overview
 
-The Twitter Test is a simple test we give our prospective web developers to see how they do given a coding task.
+The Developer Test is a simple test we give our prospective web developers to see how they do given a coding task.
 
 The premise is simple, create a PHP script that performs a search on Twitter using the Twitter Search API for tweets containing any of the following words: red, green, blue or yellow.
 
