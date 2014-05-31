@@ -1,0 +1,18 @@
+/* ==========================================================================
+Author's custom styles
+========================================================================== */
+
+*,
+*:after,
+*:before {
+  @include box-sizing(border-box);
+}
+
+html,body {
+    font-size: 16px !important;
+    font-size: 1rem !important;
+    color: $darkColor;  
+    background-color: $lightColor;
+    font-family: "NewsGothic", Arial, Helvetica, sans-serif;
+}
+ 
