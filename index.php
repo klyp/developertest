@@ -59,9 +59,9 @@ $blue_movies = searchMovies("blue");
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <div class="row">
+        <header class="row">
             <div class="columns large-12 small-12"><h1>Klyp Development Test</h1></div>
-        </div>
+        </header>
         
         <?php
             echo printMovies($red_movies);

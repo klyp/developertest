@@ -4870,7 +4870,11 @@ h2 {
 
 .row {
   margin: 5px auto;
-  background-color: #dddddd;
+  background-color: #eeeeee;
+}
+
+header.row {
+  background-color: transparent;
 }
 
 .columns {
