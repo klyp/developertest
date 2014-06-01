@@ -50,7 +50,7 @@ function printMovies($movies){
             //Generate HTML
             $html .= '<div class="row '.$class.'">'
                 . '<div class="columns large-2 medium-2 small-12">'
-                . '<img src="'.$movie->posters->detailed.'">'
+                . '<img src="'.$movie->posters->detailed.'" alt="'.$movie->title.'">'
                 . '</div>'
                 . '<div class="columns large-10 medium-10 small-12">'
                 . '<h2>'.$movie->title.'</h2>'
@@ -89,18 +89,10 @@ usort($movies, "sortTitle");
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Klyp Developer Test</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <header class="row">
-            <div class="columns large-12 small-12"><h1>Klyp Development Test</h1></div>
-        </header>
-        
-        <?php
-            echo printMovies($movies);
-        ?>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
@@ -108,8 +100,13 @@ usort($movies, "sortTitle");
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
-
-
+        <header class="row">
+            <div class="columns large-12 small-12"><h1>Klyp Development Test</h1></div>
+        </header>
+        
+        <?php
+            echo printMovies($movies);
+        ?>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/main.js"></script>
