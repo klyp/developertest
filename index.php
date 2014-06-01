@@ -3,13 +3,20 @@
 
 $api_key = "6qvrmbehyspcu57hma2q222z";
 $url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json";
+$page_limit = 30;
+
+function sortTitle($a, $b)
+{
+    return strcmp($a->title, $b->title);
+}
+
 
 function searchMovies($query){
     if(isset($query) && $query != ''){
 
-        global $url, $api_key;
+        global $url, $api_key, $page_limit;
 
-        $curl_session = curl_init($url."?apikey=".$api_key."&q=".urlencode($query));
+        $curl_session = curl_init($url."?apikey=".$api_key."&page_limit=".$page_limit."&q=".urlencode($query));
         curl_setopt($curl_session, CURLOPT_RETURNTRANSFER, true);
         $data = curl_exec($curl_session);
         curl_close($curl_session);      
@@ -24,7 +31,20 @@ function printMovies($movies){
     $html = '';
     if(isset($movies) && count($movies)){
         foreach($movies as $movie){
-            $html .= '<div class="row">'
+
+            if(stristr($movie->title, 'red')){
+                $class = "red";
+            } elseif(stristr($movie->title, 'green')){
+                $class = "green";
+            } elseif(stristr($movie->title, 'yellow')){
+                $class = "yellow"; 
+            } elseif(stristr($movie->title, 'blue')){
+                $class = "blue";
+            } else {      
+                $class = "";
+            }
+
+            $html .= '<div class="row '.$class.'">'
                 . '<div class="columns large-2 medium-2 small-12">'
                 . '<img src="'.$movie->posters->detailed.'">'
                 . '</div>'
@@ -39,11 +59,18 @@ function printMovies($movies){
     }
 
 }
-
+$movies = array();
 $red_movies = searchMovies("red");
 $green_movies = searchMovies("green");
 $yellow_movies = searchMovies("yellow");
 $blue_movies = searchMovies("blue");
+
+$movies = array_merge($movies, (array)$red_movies);
+$movies = array_merge($movies, (array)$green_movies);
+$movies = array_merge($movies, (array)$yellow_movies);
+$movies = array_merge($movies, (array)$blue_movies);
+
+usort($movies, "sortTitle");
 
 ?>
 <!DOCTYPE html>
@@ -64,10 +91,7 @@ $blue_movies = searchMovies("blue");
         </header>
         
         <?php
-            echo printMovies($red_movies);
-            echo printMovies($green_movies);
-            echo printMovies($yellow_movies);
-            echo printMovies($blue_movies);
+            echo printMovies($movies);
         ?>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>

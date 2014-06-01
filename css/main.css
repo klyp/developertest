@@ -4884,6 +4884,22 @@ header.row {
   width: 100%;
 }
 
+.red {
+  background-color: #ffcaca;
+}
+
+.green {
+  background-color: #b9e9b9;
+}
+
+.yellow {
+  background-color: #fff6ca;
+}
+
+.blue {
+  background-color: #71a1ff;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
