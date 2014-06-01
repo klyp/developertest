@@ -1,16 +1,17 @@
 <?php
 
-
+//Set Variables
 $api_key = "6qvrmbehyspcu57hma2q222z";
 $url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json";
 $page_limit = 30;
 
+//Function to sort movies by title, used with usort function
 function sortTitle($a, $b)
 {
     return strcmp($a->title, $b->title);
 }
 
-
+//Make HTTP request to rotten tomatoes and return search results
 function searchMovies($query){
     if(isset($query) && $query != ''){
 
@@ -27,11 +28,13 @@ function searchMovies($query){
     }
 }
 
+//Loop through the movies and generate HTML to be outputted
 function printMovies($movies){
     $html = '';
     if(isset($movies) && count($movies)){
         foreach($movies as $movie){
 
+            //Set class dependant on what colour exits in the title
             if(stristr($movie->title, 'red')){
                 $class = "red";
             } elseif(stristr($movie->title, 'green')){
@@ -44,6 +47,7 @@ function printMovies($movies){
                 $class = "";
             }
 
+            //Generate HTML
             $html .= '<div class="row '.$class.'">'
                 . '<div class="columns large-2 medium-2 small-12">'
                 . '<img src="'.$movie->posters->detailed.'">'
@@ -59,17 +63,21 @@ function printMovies($movies){
     }
 
 }
-$movies = array();
+
+
+//Run each search for set colours
 $red_movies = searchMovies("red");
 $green_movies = searchMovies("green");
 $yellow_movies = searchMovies("yellow");
 $blue_movies = searchMovies("blue");
 
-$movies = array_merge($movies, (array)$red_movies);
+//Merge the results to one array in order to sort
+$movies = (array)$red_movies;
 $movies = array_merge($movies, (array)$green_movies);
 $movies = array_merge($movies, (array)$yellow_movies);
 $movies = array_merge($movies, (array)$blue_movies);
 
+//sort the results by title
 usort($movies, "sortTitle");
 
 ?>
