@@ -15,9 +15,9 @@ The output should be a HTML page that displays each matching movies details (tit
 
 ### Instructions
 
-1. Fork this repository to your Github account
+1. Clone this repository to your Github account (don't fork it please)
 2. Create your PHP script, commit it and then push it to Github
-3. Create a merge request on this repository
+3. Email us a link to your completed code
 4. You're done!
 
 ### Handy Links
