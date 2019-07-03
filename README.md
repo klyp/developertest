@@ -4,7 +4,7 @@
 
 The Developer Test is a simple test we give our prospective web developers to see how they do given a coding task.
 
-The premise is simple, create a PHP script that performs a search on Rotten Tomatoes using the Search API for movies containing any of the following words: red, green, blue or yellow.
+The premise is simple, create a PHP script that performs a search using the Search API for movies containing any of the following words: red, green, blue or yellow.
 
 The output should be a HTML page that displays each matching movies details (title, year, runtime) on a page. Also, extract the first matching word from the movie title, and show it somewhere on the movie details (maybe as the background colour).
 
@@ -22,5 +22,5 @@ The output should be a HTML page that displays each matching movies details (tit
 
 ### Handy Links
 
-* [http://developer.rottentomatoes.com/docs/read/json/v10/Movies_Search](http://developer.rottentomatoes.com/docs/read/json/v10/Movies_Search)
+* [http://omdbapi.com/](http://omdbapi.com/)
 * [http://www.w3.org/QA/Tools/](http://www.w3.org/QA/Tools/)
