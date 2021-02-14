@@ -6,7 +6,7 @@ The Developer Test is a simple test we give our prospective web developers to se
 
 The premise is simple, create a simple website that will be able to perform a search using the Search API for movies containing any of the following words: red, green, blue or yellow.
 
-The output should be a webpage page that displays matching movies with their details (title, year, runtime) on a page. Also, extract the first matching word from the list from the movie title, and show it somewhere on the movie details (maybe as the background colour).
+The output should be a webpage page that displays matching movies with their details (title, year, runtime) on a page. Also, extract the first matching word in the movie title from the list of colours and show it somewhere on the movie details (maybe as the background colour).
 
 Things we are looking for:
 - use of a backend framework (Wordpress, Laravel, Strapi) and relevant skills within that system
@@ -18,7 +18,7 @@ Things we are looking for:
 Optional functionality you may like to include
  - Caching of search results
  - Good use of DOM counts
- - Mobile Responsivness
+ - Mobile Responsiveness
  - Lighthouse performance export
 
 Notes:
